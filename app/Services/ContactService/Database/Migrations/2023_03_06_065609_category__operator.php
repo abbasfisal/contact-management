@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('Category_Operator', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('operator_id')->constrained('operators');
+            $table->foreignId('category_id')->constrained('categories');
             $table->timestamps();
         });
     }
