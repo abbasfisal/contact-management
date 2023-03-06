@@ -30,15 +30,9 @@ abstract class BaseRepository implements BaseRepositoryInterface
 
     /***** JSON Adaptor *****/
 
-    public function toResource(Model $model): JsonResource
-    {
-        return new JsonResource($model);
-    }
+    abstract public function toResource(Model $model): JsonResource;
 
-    public function toCollection(Collection $collection): ResourceCollection
-    {
-        return new ResourceCollection($collection);
-    }
+    abstract public function toCollection(Collection $collection): ResourceCollection;
 
     public function toJSON(LengthAwarePaginator|Collection|Model $rawData): array
     {

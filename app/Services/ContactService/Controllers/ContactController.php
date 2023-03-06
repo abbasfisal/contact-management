@@ -3,11 +3,10 @@
 namespace App\Services\ContactService\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Services\ContactService\Models\Contact;
+use App\Services\ContactService\Helpers\ResponseHelper;
 use App\Services\ContactService\Repository\ContactServiceInterface;
-use App\Services\ContactService\Resources\ContactResource;
 use App\Services\ContactService\Resources\ContactResourceCollection;
-use Carbon\Carbon;
+use Illuminate\Http\JsonResponse;
 
 class ContactController extends Controller
 {
@@ -15,7 +14,7 @@ class ContactController extends Controller
     {
     }
 
-    public function index()
+    public function index(): JsonResponse
     {
 //        $a =  Contact::query()->create([
 //            'customer_id'       => 1,
@@ -31,8 +30,9 @@ class ContactController extends Controller
 //        return new ContactResource($a);
         //ContactResource::collection($a)
 
-        $col = $this->contactRepository->list();
-        return new ContactResourceCollection($col);
-        dd($this->contactRepository->getModel());
+        $contacts = $this->contactRepository->list();
+
+        return ResponseHelper::retrieved($this->contactRepository->toJSON($contacts));
+
     }
 }

@@ -51,7 +51,7 @@ class ResponseHelper
         if (count($messages) == 0) {
             $messages[] = [
                 'type' => 'success',
-                'text' => __('szk::response.success')
+                'text' => __('ikco::response.success')
             ];
         }
 
@@ -68,7 +68,7 @@ class ResponseHelper
         if (count($messages) == 0) {
             $messages[] = [
                 'type' => 'info',
-                'text' => __('szk::response.retrieved')
+                'text' => __('ikco::response.retrieved')
             ];
         }
 
@@ -85,7 +85,7 @@ class ResponseHelper
         if (count($messages) == 0) {
             $messages[] = [
                 'type' => 'success',
-                'text' => __('szk::response.created')
+                'text' => __('ikco::response.created')
             ];
         }
 
@@ -102,7 +102,7 @@ class ResponseHelper
         if (count($messages) == 0) {
             $messages[] = [
                 'type' => 'success',
-                'text' => __('szk::response.updated')
+                'text' => __('ikco::response.updated')
             ];
         }
 
@@ -119,7 +119,7 @@ class ResponseHelper
         if (count($messages) == 0) {
             $messages[] = [
                 'type' => 'info',
-                'text' => __('szk::response.deleted')
+                'text' => __('ikco::response.deleted')
             ];
         }
 
@@ -154,7 +154,7 @@ class ResponseHelper
         if (count($messages) == 0) {
             $messages[] = [
                 'type' => 'error',
-                'text' => __('szk::response.error')
+                'text' => __('ikco::response.error')
             ];
         }
 
@@ -171,7 +171,7 @@ class ResponseHelper
         if (count($messages) == 0) {
             $messages[] = [
                 'type' => 'error',
-                'text' => __('szk::response.notFound')
+                'text' => __('ikco::response.notFound')
             ];
         }
         return self::error(
@@ -186,7 +186,7 @@ class ResponseHelper
         if (count($messages) == 0) {
             $messages[] = [
                 'type' => 'error',
-                'text' => __('szk::response.unauthorized')
+                'text' => __('ikco::response.unauthorized')
             ];
         }
         return self::error(
@@ -201,7 +201,7 @@ class ResponseHelper
         if (count($messages) == 0) {
             $messages[] = [
                 'type' => 'error',
-                'text' => __('szk::response.forbidden')
+                'text' => __('ikco::response.forbidden')
             ];
         }
         return self::error(
@@ -228,7 +228,7 @@ class ResponseHelper
             [
                 [
                     'type' => 'error',
-                    'text' => __('szk::response.unprocessable')
+                    'text' => __('ikco::response.unprocessable')
                 ]
             ],
             self::STATUS_UNPROCESSABLE_ENTITY
