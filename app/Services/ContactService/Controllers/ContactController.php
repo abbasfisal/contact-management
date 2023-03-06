@@ -4,9 +4,11 @@ namespace App\Services\ContactService\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Services\ContactService\Helpers\ResponseHelper;
+use App\Services\ContactService\Models\Contact;
 use App\Services\ContactService\Repository\ContactServiceInterface;
 use App\Services\ContactService\Resources\ContactResourceCollection;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
@@ -16,23 +18,15 @@ class ContactController extends Controller
 
     public function index(): JsonResponse
     {
-//        $a =  Contact::query()->create([
-//            'customer_id'       => 1,
-//            'status_id'         => 1,
-//            'category_id'       => 1,
-//            'operator_id'       => 1,
-//            'satisfaction_rate' => 4,
-//            'duration'          => Carbon::createFromTime(0, 0, 10)->toTimeString(),
-//            'comment'           => 'this comment',
-//            'called_number'     => '03648897987'
-//        ]);
-//
-//        return new ContactResource($a);
-        //ContactResource::collection($a)
-
         $contacts = $this->contactRepository->list();
 
         return ResponseHelper::retrieved($this->contactRepository->toJSON($contacts));
+    }
+
+    public function delete(Request $request , Contact $contact): JsonResponse
+    {
+        $this->contactRepository->destroy($contact);
+        return ResponseHelper::deleted();
 
     }
 }
