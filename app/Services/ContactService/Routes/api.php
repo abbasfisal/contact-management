@@ -18,7 +18,7 @@ Route::get('api/a', function () {
 Route::group(['prefix' => 'api', 'middleware' => 'api'], function () {
 
     Route::group(['prefix' => 'contact'], function () {
-        Route::get('/list', [ContactController::class, 'index']);
+        Route::get('/list', [ContactController::class, 'index'])->name('contact.list');
     });
 
 
