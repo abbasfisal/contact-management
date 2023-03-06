@@ -17,5 +17,7 @@ class CategorySeeder extends Seeder
             'description' => 'sell section',
             'is_active'   => true
         ]);
+
+        $this->command->info('******** Category data Seeded!**********');
     }
 }
