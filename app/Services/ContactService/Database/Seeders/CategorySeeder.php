@@ -12,9 +12,21 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        Category::query()->create([
+        Category::query()->firstOrCreate([
             'title'       => 'Sell',
             'description' => 'sell section',
+            'is_active'   => true
+        ]);
+
+        Category::query()->firstOrCreate([
+            'title'       => 'Contact Us',
+            'description' => 'contact us section',
+            'is_active'   => true
+        ]);
+
+        Category::query()->firstOrCreate([
+            'title'       => 'Support',
+            'description' => 'Support Section',
             'is_active'   => true
         ]);
 
