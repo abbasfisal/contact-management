@@ -4,6 +4,7 @@ namespace App\Services\ContactService\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @property int id ,
@@ -18,6 +19,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Contact extends Model
 {
+    use SoftDeletes;
     use HasFactory;
 
     protected $fillable = [
@@ -30,7 +32,7 @@ class Contact extends Model
         'comment',
         'called_number'
     ];
-    protected $casts = [
-        'duration' => 'datetime: H:i',
-    ];
+//    protected $casts = [
+//        'duration' => 'datetime: H:i',
+//    ];
 }
