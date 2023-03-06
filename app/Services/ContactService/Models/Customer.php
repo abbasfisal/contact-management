@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace App\Services\ContactService\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Customer extends Model
 {
     use HasFactory;
 }
