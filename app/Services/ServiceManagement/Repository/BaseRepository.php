@@ -13,14 +13,15 @@ use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
-class BaseRepository implements BaseRepositoryInterface
+abstract class BaseRepository implements BaseRepositoryInterface
 {
     /***** Model Adaptor *****/
 
-    public function getModelName(): string
-    {
-        return 'NoModel';
-    }
+//    public function getModelName(): string
+//    {
+//        return 'NoModel';
+//    }
+    abstract public function getModelName(): string;
 
     public function getModel(): Model
     {
