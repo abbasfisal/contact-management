@@ -15,7 +15,7 @@ return new class extends Migration {
 
             $table->foreignId('customer_id')->nullable()->constrained('customers');
 
-            $table->foreignId('status_id')->nullable()->constrained('statues');
+            $table->foreignId('status_id')->nullable()->constrained('statuses');
             $table->foreignId('category_id')->nullable()->constrained('categories');
             $table->foreignId('operator_id')->nullable()->constrained('operators');
 
