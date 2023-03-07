@@ -15,7 +15,7 @@ class CustomerResource extends JsonResource
             'mobile' => $this->mobile,
             'address' => $this->address,
             'postal_code' => $this->postal_code,
-            'is_active' => $this->is_active ? 'Active' : "DeActive"
+            'is_active' => $this->is_active ? 'Active' : 'DeActive'
         ];
     }
 }

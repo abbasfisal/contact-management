@@ -23,10 +23,11 @@ class CustomerController extends Controller
         return ResponseHelper::retrieved($this->customerService->toJSON($customers));
     }
 
-    public function create(CustomerCreateRequest $request)
+    public function create(CustomerCreateRequest $request): JsonResponse
     {
+        $customer = $this->customerService->create($request->toArray());
 
-        dd($request->toArray());
+        return ResponseHelper::created($this->customerService->toJSON($customer));
     }
 
     public function findByMobile(FindCustomerRequest $request): JsonResponse

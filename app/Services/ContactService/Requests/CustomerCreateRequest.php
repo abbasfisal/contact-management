@@ -18,7 +18,7 @@ class CustomerCreateRequest extends FormRequest
         return [
             'first_name' => 'required|string|min:3',
             'last_name' => 'required|string|min:3',
-            'mobile' => 'required|digits:11',
+            'mobile' => 'required|digits:11|unique:customers,mobile',
             'address' => 'required|string|min:4',
             'postal_code' => 'required|string|min:4'
         ];
