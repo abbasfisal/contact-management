@@ -26,6 +26,7 @@ Route::group(['prefix' => 'api', 'middleware' => 'api'], function () {
 
         Route::post('/create', [ContactController::class, 'create'])->name('contact.create');
 
+        Route::patch('/update', [ContactController::class, 'update'])->name('contact.update');
     });
 
     Route::group(['prefix' => 'customer'], function () {

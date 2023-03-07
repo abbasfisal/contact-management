@@ -7,6 +7,7 @@ use App\Services\ContactService\Helpers\ResponseHelper;
 use App\Services\ContactService\Models\Contact;
 use App\Services\ContactService\Repository\ContactServiceInterface;
 use App\Services\ContactService\Requests\ContactCreateRequest;
+use App\Services\ContactService\Requests\UpdateContactRequest;
 use App\Services\ContactService\Resources\ContactResourceCollection;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -33,5 +34,10 @@ class ContactController extends Controller
     {
         $contact = $this->contactRepository->createAnonymous($request->toArray());
         return ResponseHelper::created($this->contactRepository->toJSON($contact));
+    }
+
+    public function update(UpdateContactRequest $request)
+    {
+        
     }
 }
