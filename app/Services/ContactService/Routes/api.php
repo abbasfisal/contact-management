@@ -23,6 +23,8 @@ Route::group(['prefix' => 'api', 'middleware' => 'api'], function () {
 
         Route::delete('/delete/{contact}', [ContactController::class, 'delete'])->name('contact.delete');
 
+        Route::post('/create', [ContactController::class, 'create'])->name('contact.create');
+
     });
 
 
