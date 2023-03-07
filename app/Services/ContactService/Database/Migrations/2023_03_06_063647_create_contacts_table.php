@@ -20,7 +20,7 @@ return new class extends Migration {
             $table->foreignId('operator_id')->nullable()->constrained('operators');
 
             $table->enum('satisfaction_rate', [1, 2, 3, 4, 5])->nullable();
-            $table->time('duration')->default('00:00:00');
+            $table->time('duration')->default('00:00:00')->nullable();
             $table->string('comment')->nullable();
             $table->string('called_number');
 

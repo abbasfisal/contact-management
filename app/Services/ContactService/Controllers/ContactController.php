@@ -36,9 +36,9 @@ class ContactController extends Controller
         return ResponseHelper::created($this->contactRepository->toJSON($contact));
     }
 
-    public function update(UpdateContactRequest $request , Contact $contact)
+    public function update(UpdateContactRequest $request , Contact $contact): JsonResponse
     {
-        $contact =$this->contactRepository->update($request->toArray());
-        return $request->toArray();
+        $contact =$this->contactRepository->update($contact , $request->toArray());
+        return ResponseHelper::updated($this->contactRepository->toJSON($contact));
     }
 }
