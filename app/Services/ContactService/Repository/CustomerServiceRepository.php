@@ -30,7 +30,7 @@ class CustomerServiceRepository extends BaseRepository implements CustomerServic
         return new CustomerCollection($collection);
     }
 
-    public function findByMobile($mobile): Model
+    public function findByMobile($mobile): ?Model
     {
         return $this->getModel()->newQuery()->where('mobile', $mobile)->first();
     }

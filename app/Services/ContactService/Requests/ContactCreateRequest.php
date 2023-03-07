@@ -22,7 +22,7 @@ class ContactCreateRequest extends FormRequest
             'satisfaction_rate' => 'nullable|integer|between:1,5',
             'duration' => 'nullable',
             'comment' => 'nullable',
-            'called_number' => 'required|'
+            'called_number' => 'required|digits:11'
         ];
     }
 }

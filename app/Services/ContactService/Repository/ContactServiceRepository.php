@@ -28,4 +28,18 @@ class ContactServiceRepository extends BaseRepository implements ContactServiceI
     {
         return new ContactResourceCollection($collection);
     }
+
+    public function createAnonymous(array $data)
+    {
+        /** @var CustomerServiceRepository $customerRepo */
+        $customerRepo = app(CustomerServiceInterface::class);
+        $customer = $customerRepo->findByMobile($data['called_number']);
+
+        if ($customer) {
+            $data['customer_id'] = $customer->id;
+        }
+
+        return $this->create($data);
+
+    }
 }

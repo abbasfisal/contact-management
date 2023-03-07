@@ -20,13 +20,14 @@ class ContactResource extends JsonResource
     {
         return [
             'id'                => $this->id,
-            'customer_id'       => $this->customer_id ? new CustomerResource($this->customer) : 'no identifed',
+            'customer_id'       => $this->customer_id ? new CustomerResource($this->customer) : 'no identified',
             'status_id'         => new StatusResource($this->status),
-            'category_id'       => $this->category_id ? new CategoryResource($this->category) : ' no category',
+            'category_id'       => $this->category_id ? new CategoryResource($this->category) : 'no category',
             'operator_id'       => $this->operator_id ? new OperatorResource($this->operator) : 'no operator',
-            'satisfaction_rate' => $this->satisfaction_rate,
-            'duration'          => Carbon::createFromTime(0, 0, 10)->toTimeString(),
-            'comment'           => $this->comment,
+            'satisfaction_rate' => $this->satisfaction_rate ??null,
+            'duration'          => $this->duration??'00:00:00',
+            //'duration'          => Carbon::createFromTime(0, 0, 10)->toTimeString(),
+            'comment'           => $this->comment ??null,
             'called_number'     => $this->called_number
         ];
     }

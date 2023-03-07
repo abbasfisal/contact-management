@@ -33,6 +33,9 @@ class ContactController extends Controller
 
     public function create(ContactCreateRequest $request)
     {
-        dd($request->toArray());
+
+        $contact = $this->contactRepository->createAnonymous($request->toArray());
+        return ResponseHelper::created($this->contactRepository->toJSON($contact));
+
     }
 }
