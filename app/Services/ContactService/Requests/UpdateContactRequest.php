@@ -18,7 +18,7 @@ class UpdateContactRequest extends FormRequest
         return [
 
             'customer_id' => 'nullable|exists:customers,id',
-            'status_id' => 'nullable|exists:statues,id',
+            'status_id' => 'nullable|exists:statuses,id',
             'category_id' => 'nullable|exists:categories,id',
             'satisfaction_rate' => 'nullable|integer|between:1,5',
             'duration' => 'nullable',
