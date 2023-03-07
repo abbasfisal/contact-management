@@ -6,6 +6,7 @@ use App\Services\ContactService\Models\Customer;
 use App\Services\ContactService\Resources\CustomerCollection;
 use App\Services\ContactService\Resources\CustomerResource;
 use App\Services\ServiceManagement\Repository\BaseRepository;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Resources\Json\ResourceCollection;
@@ -27,5 +28,10 @@ class CustomerServiceRepository extends BaseRepository implements CustomerServic
     public function toCollection(Collection $collection): ResourceCollection
     {
         return new CustomerCollection($collection);
+    }
+
+    public function findByMobile($mobile): Model
+    {
+        return $this->getModel()->newQuery()->where('mobile', $mobile)->first();
     }
 }

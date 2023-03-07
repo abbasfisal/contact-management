@@ -6,5 +6,5 @@ use App\Services\ServiceManagement\Repository\BaseRepositoryInterface;
 
 interface CustomerServiceInterface extends BaseRepositoryInterface
 {
-
+    public function findByMobile($mobile);
 }
