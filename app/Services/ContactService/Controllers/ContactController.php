@@ -20,7 +20,6 @@ class ContactController extends Controller
     public function index(): JsonResponse
     {
         $contacts = $this->contactRepository->list();
-
         return ResponseHelper::retrieved($this->contactRepository->toJSON($contacts));
     }
 
@@ -28,14 +27,11 @@ class ContactController extends Controller
     {
         $this->contactRepository->destroy($contact);
         return ResponseHelper::deleted();
-
     }
 
-    public function create(ContactCreateRequest $request)
+    public function create(ContactCreateRequest $request): JsonResponse
     {
-
         $contact = $this->contactRepository->createAnonymous($request->toArray());
         return ResponseHelper::created($this->contactRepository->toJSON($contact));
-
     }
 }
