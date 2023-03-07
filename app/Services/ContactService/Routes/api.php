@@ -1,6 +1,7 @@
 <?php
 
 use App\Services\ContactService\Controllers\ContactController;
+use App\Services\ContactService\Controllers\CustomerController;
 use App\Services\ContactService\Models\Category;
 use App\Services\ContactService\Models\Contact;
 use App\Services\ContactService\Models\Operator;
@@ -25,6 +26,10 @@ Route::group(['prefix' => 'api', 'middleware' => 'api'], function () {
 
         Route::post('/create', [ContactController::class, 'create'])->name('contact.create');
 
+    });
+
+    Route::group(['prefix' => 'customer'], function () {
+        Route::post('/create', [CustomerController::class, 'create'])->name('customer.create');
     });
 
 
