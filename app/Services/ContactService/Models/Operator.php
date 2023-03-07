@@ -7,6 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * @property string $first_name
+ * @property string $last_name
+ * @property int $status
+ * @property boolean $is_active
+ *
+ *
+ */
 class Operator extends Model
 {
     use HasFactory;
