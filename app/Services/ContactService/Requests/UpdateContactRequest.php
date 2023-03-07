@@ -16,7 +16,7 @@ class UpdateContactRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id' => 'required|exists:contacts,id',
+
             'customer_id' => 'nullable|exists:customers,id',
             'status_id' => 'nullable|exists:statues,id',
             'category_id' => 'nullable|exists:categories,id',
