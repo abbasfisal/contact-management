@@ -29,6 +29,7 @@ Route::group(['prefix' => 'api', 'middleware' => 'api'], function () {
     });
 
     Route::group(['prefix' => 'customer'], function () {
+        Route::get('/list', [CustomerController::class, 'index'])->name('customer.index');
         Route::post('/create', [CustomerController::class, 'create'])->name('customer.create');
     });
 

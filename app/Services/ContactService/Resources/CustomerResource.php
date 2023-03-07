@@ -7,13 +7,15 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class CustomerResource extends JsonResource
 {
-    /**
-     * Transform the resource into an array.
-     *
-     * @return array<string, mixed>
-     */
+
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'name' => $this->first_name . ' ' . $this->last_name,
+            'mobile' => $this->mobile,
+            'address' => $this->address,
+            'postal_code' => $this->postal_code,
+            'is_active' => $this->is_active ? 'Active' : "DeActive"
+        ];
     }
 }

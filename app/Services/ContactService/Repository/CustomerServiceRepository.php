@@ -2,10 +2,8 @@
 
 namespace App\Services\ContactService\Repository;
 
-use App\Services\ContactService\Models\Contact;
 use App\Services\ContactService\Models\Customer;
-use App\Services\ContactService\Resources\ContactResource;
-use App\Services\ContactService\Resources\ContactResourceCollection;
+use App\Services\ContactService\Resources\CustomerCollection;
 use App\Services\ContactService\Resources\CustomerResource;
 use App\Services\ServiceManagement\Repository\BaseRepository;
 use Illuminate\Database\Eloquent\Model;
@@ -13,7 +11,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Support\Collection;
 
-class CustomerServiceRepository extends BaseRepository implements ContactServiceInterface
+class CustomerServiceRepository extends BaseRepository implements CustomerServiceInterface
 {
 
     public function getModelName(): string
@@ -28,6 +26,6 @@ class CustomerServiceRepository extends BaseRepository implements ContactService
 
     public function toCollection(Collection $collection): ResourceCollection
     {
-        return new ContactResourceCollection($collection);
+        return new CustomerCollection($collection);
     }
 }
